@@ -1,10 +1,16 @@
 package com.zcode.wordcounter;
 
-/**
- * Hello Word Counter!
- */
+import com.zcode.wordcounter.logic.WordCounterManager;
+
 public class App {
+
     public static void main(String[] args) {
-        System.out.println("Hello Word Counter!");
+        WordCounterManager wordCounterManager = new WordCounterManager();
+        try {
+            wordCounterManager.askUserForTextAndCountWords();
+        } finally {
+            wordCounterManager.exit();
+        }
     }
+
 }
