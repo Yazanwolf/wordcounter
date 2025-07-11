@@ -6,7 +6,11 @@ public class App {
 
     public static void main(String[] args) {
         WordCounterManager wordCounterManager = new WordCounterManager();
-        wordCounterManager.askUserForTextAndCountWords();
+        try {
+            wordCounterManager.askUserForTextAndCountWords();
+        } finally {
+            wordCounterManager.exit();
+        }
     }
 
 }
