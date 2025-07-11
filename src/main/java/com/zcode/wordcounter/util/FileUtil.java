@@ -12,7 +12,7 @@ public class FileUtil {
     public static List<String> readLines(String filePath) throws IOException {
         InputStream stopWordsInputStream = FileUtil.class.getClassLoader().getResourceAsStream(filePath);
         if (stopWordsInputStream == null) {
-            throw new FileNotFoundException("The file stopwords.txt was not found.");
+            throw new FileNotFoundException("No file was found for the provided path!");
         }
         List<String> fileLines = new ArrayList<>();
         try (InputStreamReader dataInputStream = new InputStreamReader(stopWordsInputStream);
