@@ -28,7 +28,7 @@ public class WordCounter {
 
     public Long countWords(String enteredText) {
         if (enteredText == null) {
-            throw new IllegalArgumentException("Entered text can not be empty!");
+            throw new IllegalArgumentException("Entered text can not be null!");
         }
         return Arrays.stream(enteredText.split(TEXT_SEPARATOR)).filter(isWord).count();
     }
