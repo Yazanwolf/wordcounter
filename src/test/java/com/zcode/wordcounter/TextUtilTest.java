@@ -11,14 +11,14 @@ public class TextUtilTest {
     @Test
     void isWord() {
         // pure words
-        assertTrue(TextUtil.isWord.test("Hello"));
-        assertTrue(TextUtil.isWord.test("Hello"));
+        assertTrue(TextUtil.containsOnlyLetters.test("Hello"));
+        assertTrue(TextUtil.containsOnlyLetters.test("Hello"));
         // falsy words
-        assertFalse(TextUtil.isWord.test("Hello!"));
-        assertFalse(TextUtil.isWord.test("Hello,"));
-        assertFalse(TextUtil.isWord.test(" Hello,"));
-        assertFalse(TextUtil.isWord.test("Ass!gnment"));
-        assertFalse(TextUtil.isWord.test("M@rch"));
+        assertFalse(TextUtil.containsOnlyLetters.test("Hello!"));
+        assertFalse(TextUtil.containsOnlyLetters.test("Hello,"));
+        assertFalse(TextUtil.containsOnlyLetters.test(" Hello,"));
+        assertFalse(TextUtil.containsOnlyLetters.test("Ass!gnment"));
+        assertFalse(TextUtil.containsOnlyLetters.test("M@rch"));
     }
 
 }

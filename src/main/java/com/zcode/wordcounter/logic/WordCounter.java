@@ -1,12 +1,29 @@
 package com.zcode.wordcounter.logic;
 
-import java.util.Arrays;
+import com.zcode.wordcounter.util.FileUtil;
 
-import static com.zcode.wordcounter.util.TextUtil.isWord;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+import static com.zcode.wordcounter.util.TextUtil.containsOnlyLetters;
 
 public class WordCounter {
 
     private static final String TEXT_SEPARATOR = " ";
+    private final List<String> stopWords = new ArrayList<>();
+    private final Predicate<String> isWord = text -> containsOnlyLetters.test(text)
+            && stopWords.stream().noneMatch(word -> word.equals(text));
+
+    public WordCounter() {
+        try {
+            stopWords.addAll(FileUtil.readLines("files/stopwords.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Long countWords(String enteredText) {
         if (enteredText == null) {
@@ -14,5 +31,5 @@ public class WordCounter {
         }
         return Arrays.stream(enteredText.split(TEXT_SEPARATOR)).filter(isWord).count();
     }
-
+    
 }

@@ -21,20 +21,20 @@ public class WordCounterTest {
     void countWordsInsidePureText() {
         String text = "Mary had a little lamb";
         Long numberOfWords = wordCounter.countWords(text);
-        assertEquals(5L, numberOfWords);
+        assertEquals(4L, numberOfWords);
     }
 
     @Test
     void countWordsInsideTextContainsSymbols() {
         String text = "Ma*ry had a little lamb";
         Long numberOfWords = wordCounter.countWords(text);
-        assertEquals(4L, numberOfWords);
+        assertEquals(3L, numberOfWords);
         text = "Mary had a little lamb.";
         numberOfWords = wordCounter.countWords(text);
-        assertEquals(4L, numberOfWords);
+        assertEquals(3L, numberOfWords);
         text = "Mary had, a little lamb?";
         numberOfWords = wordCounter.countWords(text);
-        assertEquals(3L, numberOfWords);
+        assertEquals(2L, numberOfWords);
     }
 
 }

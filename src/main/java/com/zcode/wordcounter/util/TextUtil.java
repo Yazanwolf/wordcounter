@@ -10,7 +10,7 @@ public class TextUtil {
     private TextUtil() {
     }
 
-    public static final Predicate<String> isWord = text -> {
+    public static final Predicate<String> containsOnlyLetters = text -> {
         if (text.isEmpty()) return false;
         for (int i = 0; i < text.length(); i++) {
             char letter = text.charAt(i);
