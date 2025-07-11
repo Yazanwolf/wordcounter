@@ -15,19 +15,14 @@ public class FileUtil {
             throw new FileNotFoundException("The file stopwords.txt was not found.");
         }
         List<String> fileLines = new ArrayList<>();
-        BufferedReader bufferedReader = null;
-        try (InputStreamReader dataInputStream = new InputStreamReader(stopWordsInputStream)) {
-            bufferedReader = new BufferedReader(dataInputStream);
+        try (InputStreamReader dataInputStream = new InputStreamReader(stopWordsInputStream);
+             BufferedReader bufferedReader = new BufferedReader(dataInputStream)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 fileLines.add(line);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } finally {
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
+            stopWordsInputStream.close();
         }
         return fileLines;
     }
