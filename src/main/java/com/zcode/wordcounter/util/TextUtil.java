@@ -11,6 +11,7 @@ public class TextUtil {
     }
 
     public static final Predicate<String> isWord = text -> {
+        if (text.isEmpty()) return false;
         for (int i = 0; i < text.length(); i++) {
             char letter = text.charAt(i);
             if (!Character.isLetter(letter)) {

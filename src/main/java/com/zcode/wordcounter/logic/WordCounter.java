@@ -9,7 +9,7 @@ public class WordCounter {
     private static final String TEXT_SEPARATOR = " ";
 
     public Long countWords(String enteredText) {
-        if (enteredText == null || enteredText.isEmpty()) {
+        if (enteredText == null) {
             throw new IllegalArgumentException("Entered text can not be empty!");
         }
         return Arrays.stream(enteredText.split(TEXT_SEPARATOR)).filter(isWord).count();
