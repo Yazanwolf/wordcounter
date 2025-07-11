@@ -12,6 +12,7 @@ import static com.zcode.wordcounter.util.TextUtil.containsOnlyLetters;
 
 public class WordCounter {
 
+    public static final String STOP_WORDS_FILE_PATH = "files/stopwords.txt";
     private static final String TEXT_SEPARATOR = " ";
     private final List<String> stopWords = new ArrayList<>();
     private final Predicate<String> isWord = text -> containsOnlyLetters.test(text)
@@ -19,7 +20,7 @@ public class WordCounter {
 
     public WordCounter() {
         try {
-            stopWords.addAll(FileUtil.readLines("files/stopwords.txt"));
+            stopWords.addAll(FileUtil.readLines(STOP_WORDS_FILE_PATH));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,5 +32,5 @@ public class WordCounter {
         }
         return Arrays.stream(enteredText.split(TEXT_SEPARATOR)).filter(isWord).count();
     }
-    
+
 }
