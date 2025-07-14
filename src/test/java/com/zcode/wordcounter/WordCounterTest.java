@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -13,7 +15,7 @@ public class WordCounterTest {
     private WordCounter wordCounter;
 
     @BeforeAll
-    void setup() {
+    void setup() throws IOException {
         this.wordCounter = new WordCounter();
     }
 

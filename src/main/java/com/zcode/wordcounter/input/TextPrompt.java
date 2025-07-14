@@ -1,8 +1,9 @@
 package com.zcode.wordcounter.input;
 
+import java.io.Closeable;
 import java.util.Scanner;
 
-public class TextPrompt implements AutoCloseable {
+public class TextPrompt implements Closeable {
 
     private final Scanner scanner;
 
