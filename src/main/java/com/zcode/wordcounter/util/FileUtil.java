@@ -27,4 +27,8 @@ public class FileUtil {
         return fileLines;
     }
 
+    public static boolean fileExists(String filePath) {
+        return FileUtil.class.getClassLoader().getResource(filePath) != null;
+    }
+
 }

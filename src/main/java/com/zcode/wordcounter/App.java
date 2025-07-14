@@ -8,7 +8,12 @@ public class App {
 
         WordCounterManager wordCounterManager = new WordCounterManager();
         try {
-            wordCounterManager.askUserForTextAndCountWords();
+            if (args.length > 0) {
+                String inputFileName = args[0];
+                wordCounterManager.countWordsInFile(inputFileName);
+            } else {
+                wordCounterManager.askUserForTextAndCountWords();
+            }
         } finally {
             wordCounterManager.exit();
         }
